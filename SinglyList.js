@@ -29,3 +29,22 @@ SinglyList.prototype.add = function(value){
 	
 	return node;
 }
+
+
+SinglyList.prototype.searchNodeAt = function(position){
+	var currentNode = this.head,
+		length = this._length,
+		count = 1,
+		message = {failure: "Failure: non-existent node in this list."};
+
+	if(length === 0 || position < 1 || position > length){
+		throw new Error(message.failure);
+	}
+
+	while(count < position){
+		currentNode = currentNode.next;
+		count++;
+	}
+
+	return currentNode;
+}
